@@ -8,7 +8,8 @@ Requirements:
 2. a database called `latency`
 3. postgis extension installed in that database
 4. Python 3
-5. the stuff in the [requirements.txt](requirements.txt)
+5. the packages in the [requirements.txt](requirements.txt)
+6. Maxmind's "GeoLite2 City" database file
 
 Then run:
 
