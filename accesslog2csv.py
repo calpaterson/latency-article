@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # accesslog2csv: Convert default, unified access log from Apache, Nginx
 # servers to CSV format.
 #
@@ -5,27 +7,26 @@
 # Modified by Joshua Wright to parse all elements in the HTTP request as
 # different columns, December 16, 2019
 
+# Subsequently switched to steams by Cal Paterson - Oct 2020
 
 import csv
 import re
 import sys
 
-if len(sys.argv) == 1:
-    sys.stdout.write("Usage: %s <access.log> <accesslog.csv>\n"%sys.argv[0])
-    sys.exit(0)
-
-log_file_name = sys.argv[1]
-csv_file_name = sys.argv[2]
-
 pattern = re.compile(r'(?P<host>\S+).(?P<rfc1413ident>\S+).(?P<user>\S+).\[(?P<datetime>\S+ \+[0-9]{4})]."(?P<httpverb>\S+) (?P<url>\S+) (?P<httpver>\S+)" (?P<status>[0-9]+) (?P<size>\S+) "(?P<referer>.*)" "(?P<useragent>.*)"\s*\Z')
 
-file = open(log_file_name)
+if __name__ == "__main__":
+    log_f = sys.stdin
 
-with open(csv_file_name, 'w') as out:
-    csv_out=csv.writer(out)
+    csv_out=csv.writer(sys.stdout)
     csv_out.writerow(['host', 'ident', 'user', 'time', 'verb', 'url', 'httpver', 'status', 'size', 'referer', 'useragent'])
 
-    for line in file:
+    for line in log_f:
         m = pattern.match(line)
-        result = m.groups()
+        try:
+            result = m.groups()
+        except AttributeError:
+            # I need this because of various bots trying it on with thonkphp nonsense - CJP
+            print("line = %s" % line, file=sys.stderr)
+            continue
         csv_out.writerow(result)
