@@ -1,3 +1,4 @@
 # Make sure I don't commit any logs by accident
 access.log*
 *.csv
+*.sentinel
