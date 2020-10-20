@@ -15,3 +15,5 @@ Then run:
 ```
 make
 ```
+
+If you just want to see what I did, consult the [makefile](Makefile).
