@@ -18,3 +18,8 @@ CREATE INDEX IF NOT EXISTS accesslog_time on accesslog (time);
 CREATE INDEX IF NOT EXISTS accesslog_verb on accesslog (verb);
 CREATE INDEX IF NOT EXISTS accesslog_url on accesslog (url);
 
+CREATE TABLE IF NOT EXISTS geocoded_hosts (
+host inet primary key,
+location geography not null,
+accuracy_radius int not null
+);

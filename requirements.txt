@@ -1,1 +1,2 @@
-python-geoip-geolite2
+geoip2
+requests
