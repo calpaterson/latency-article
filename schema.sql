@@ -1,16 +1,16 @@
 CREATE TABLE IF NOT EXISTS accesslog (
-id serial primary key,
-host inet not null,
-ident text not null,
-username text not null,
-time timestamptz not null,
-verb text not null,
-url text not null,
-httpver text not null,
-status int not null,
-size int not null,
-referer text not null,
-useragent text not null
+       id serial primary key,
+       host inet not null,
+       ident text not null,
+       username text not null,
+       time timestamptz not null,
+       verb text not null,
+       url text not null,
+       httpver text not null,
+       status int not null,
+       size int not null,
+       referer text not null,
+       useragent text not null
 )
 ;
 CREATE INDEX IF NOT EXISTS accesslog_host on accesslog (host);
