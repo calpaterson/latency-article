@@ -1,6 +1,8 @@
 # Scratchings for a latency article
 
-## Getting started
+This repo contains the code
+
+## Building
 
 Requirements:
 
@@ -9,12 +11,12 @@ Requirements:
 3. postgis extension installed in that database
 4. Python 3
 5. the packages in the [requirements.txt](requirements.txt)
-6. Maxmind's "GeoLite2 City" database file
+6. Maxmind's "GeoLite2 City" database file, `GeoLite2-City.mmdb`
 
 Then run:
 
 ```
-make
+make -j
 ```
 
-If you just want to see what I did, consult the [makefile](Makefile).
+If you just want to see what I did, best to read the [makefile](Makefile) directly.

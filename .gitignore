@@ -3,3 +3,4 @@ access.log*
 *.csv
 *.sentinel
 *.mmdb
+cities15000.*

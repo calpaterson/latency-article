@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Geocode the set of host ips"""
+
 import csv
 import sys
 
