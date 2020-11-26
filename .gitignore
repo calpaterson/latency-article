@@ -1,6 +1,8 @@
 # Make sure I don't commit any logs by accident
 access.log*
-*.csv
+geocoded-hosts.csv
+hosts.csv
+latency-matrix.csv
 *.sentinel
 *.mmdb
 cities15000.*
