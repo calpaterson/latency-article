@@ -1,2 +1,7 @@
-geoip2
-requests
+geoip2~=4.1.0
+requests~=2.25.0
+numpy>=1.1.0  # required for cartopy
+scipy~=1.5.4  # again, required for cartopy
+shapely~=1.7.1
+cartopy~=0.18.0
+matplotlib~=3.3.3

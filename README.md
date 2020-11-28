@@ -11,7 +11,13 @@ Requirements:
 3. postgis extension installed in that database
 4. Python 3
 5. the packages in the [requirements.txt](requirements.txt)
+   - the shapely wheel doesn't get on with libgeos on debian stable, so I had
+     to use the following magic incantation: `pip install shapely --no-binary
+     shapely`
 6. Maxmind's "GeoLite2 City" database file, `GeoLite2-City.mmdb`
+7. A few C libraries, the debian packages for which are:
+   - libgeos-dev
+   - libproj-dev
 
 Then run:
 
