@@ -9,7 +9,7 @@ schema.sentinel: schema.sql
 
 accesslog-load.sentinel: load-accesslog.sql schema.sentinel calpaterson-logs-2020-09-30/access.log accesslog2csv.py
 	cat calpaterson-logs-2020-09-30/access.log* | ./accesslog2csv.py | psql -d latency -1 -f "$(file < load-accesslog.sql)"
-	touch load-accesslog.sentinel
+	touch $@
 
 # This is slow so a sep target
 geocoded-hosts.csv: host_latlngs.py accesslog-load.sentinel schema.sentinel
@@ -17,15 +17,19 @@ geocoded-hosts.csv: host_latlngs.py accesslog-load.sentinel schema.sentinel
 
 geocoded-hosts-load.sentinel: geocoded-hosts.csv load-geocoded-hosts.sql schema.sentinel
 	cat geocoded-hosts.csv | psql -d latency -1 -c "$(file < load-geocoded-hosts.sql)"
-	touch geocoded-hosts-load.sentinel
+	touch $@
 
 cities-load.sentinel: schema.sentinel cities15000.txt
 	cat cities15000.txt | ./cities_2_wkt.py | psql -d latency -1 -c "$(file < load-cities.sql)"
-	touch cities-load.sentinel
+	touch $@
+
+geocoded-cities-load.sentinel: geocoded-cities.csv load-geocoded-cities.sql schema.sentinel
+	cat geocoded-cities.csv | psql -d latency -1 -c "$(file < load-geocoded-cities.sql)"
+	touch $@
 
 latencies-load.sentinel: schema.sentinel latency-matrix.csv
 	cat latency-matrix.csv | psql -d latency -1 -c "$(file < load-latencies.sql)"
-	touch latencies-load.sentinel
+	touch $@
 
 # External data sources
 #

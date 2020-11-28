@@ -43,3 +43,8 @@ CREATE TABLE IF NOT EXISTS cities (
        country_code text not null,
        population bigint not null
 );
+
+CREATE TABLE IF NOT EXISTS geocoded_cities (
+       latency_city_name text not null unique,
+       geoname_id int primary key
+)

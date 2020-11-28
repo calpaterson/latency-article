@@ -24,6 +24,6 @@ If you just want to see what I did, best to read the [makefile](Makefile) direct
 ## Files
 
 - [geocoded-cities.csv](geocoded-cities.csv) - my, **hand corrected**,
-  geocoding of Wonder Network city names (except "Koto", "Malaysia" and
-  "Monticello" - which I can't narrow down) to Geoname's geoid
+  geocoding of Wonder Network city names (except "Koto", "Malaysia", "Mexico"
+  and "Monticello" - which I can't narrow down) to Geoname's geoid
 - [partial-geocode.sql](partial-geocode.sql) - query I used to extract data to create the above
