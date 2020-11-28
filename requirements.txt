@@ -5,3 +5,4 @@ scipy~=1.5.4  # again, required for cartopy
 shapely~=1.7.1
 cartopy~=0.18.0
 matplotlib~=3.3.3
+psycopg2~=2.8.6
