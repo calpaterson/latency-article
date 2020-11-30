@@ -33,8 +33,8 @@ latencies-load.sentinel: schema.sentinel latency-matrix.csv
 
 # External data sources
 #
-latency-matrix.csv: get-latency-data.py
-	./get-wondernetwork-data.py > latency-matrix.csv
+latency-matrix.csv: get_latency_data.py
+	./get_latency_data.py > latency-matrix.csv
 
 cities15000.txt:
 	wget http://download.geonames.org/export/dump/cities15000.zip
