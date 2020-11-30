@@ -4,9 +4,9 @@
 
 SELECT
 t.city_name,
-percentile_disc(0.5) within group (order by t.latency) as p50,
-percentile_disc(0.75) within group (order by t.latency) as p75,
-percentile_disc(0.99) within group (order by t.latency) as p99
+round(percentile_disc(0.5) within group (order by t.latency)) as p50,
+round(percentile_disc(0.75) within group (order by t.latency)) as p75,
+round(percentile_disc(0.99) within group (order by t.latency)) as p99
 FROM (
 SELECT
 latencies.from_ as city_name,
@@ -22,7 +22,7 @@ CROSS JOIN LATERAL (
 JOIN geocoded_cities ON closest_cities.geoname_id = geocoded_cities.geoname_id
 JOIN accesslog USING (host)
 CROSS JOIN latencies
-WHERE accesslog.url = '/site.css'
+WHERE accesslog.useragent like 'Mozilla%'
 ) as t
 group by t.city_name
 order by p99;
