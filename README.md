@@ -1,6 +1,8 @@
 # Scratchings for a latency article
 
-This repo contains the code/data for the latency article on my website.
+This repo contains the code/data for the article ["Where's the fastest place to
+put my server? How much does it matter?"](https://calpaterson.com/latency.html)
+on my website.
 
 ## Building
 
